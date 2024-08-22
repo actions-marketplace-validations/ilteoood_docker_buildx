@@ -14,7 +14,7 @@ mv buildx* ~/.docker/cli-plugins/docker-buildx
 chmod a+x ~/.docker/cli-plugins/docker-buildx
 
 # Register Arm executables
-docker run --rm --privileged docker/binfmt:820fdd95a9972a5308930a2bdfb8573dd4447ad3
+docker run --rm --privileged tonistiigi/binfmt --install all
 # Register Multiarch executables
 docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
