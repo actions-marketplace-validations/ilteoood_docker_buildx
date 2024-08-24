@@ -1,18 +1,5 @@
 #!/bin/sh -l
 
-# Download buildx
-curl -s https://api.github.com/repos/docker/buildx/releases/latest \
-| grep "browser_download_url.*buildx-*.*linux-amd64" \
-| cut -d : -f 2,3 \
-| tr -d \" \
-| wget -qi -
-
-# Configure buildx
-export DOCKER_CLI_EXPERIMENTAL=enabled
-mkdir -p ~/.docker/cli-plugins
-mv buildx* ~/.docker/cli-plugins/docker-buildx
-chmod a+x ~/.docker/cli-plugins/docker-buildx
-
 # Register Arm executables
 docker run --rm --privileged tonistiigi/binfmt --install all
 # Register Multiarch executables
