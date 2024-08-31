@@ -1,8 +1,7 @@
 #!/bin/sh -l
 
-# Register Arm executables
+# Register executables
 docker run --rm --privileged tonistiigi/binfmt --install all
-# Register Multiarch executables
 docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
 # Create builder instance
